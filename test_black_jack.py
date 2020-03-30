@@ -1,16 +1,18 @@
 import unittest
+import black_jack
 
-# def option():
-#     choice = input("choice-> HIT ,  STAY:")
-#     choice = choice.upper()
-#     print(choice)
-#     return choice
-#
-#
-# while True:
-#     try:
-#         choice = input("choice-> HIT ,  STAY:")
-#         choice = int(choice.upper())
-#         return
-#     except ValueError:
-#         print("ERROR : Please enter a valid number")
+
+class TestBlackJack(unittest.TestCase):
+
+    def test_result(self):
+        if sum(black_jack.dealer_card) < sum(black_jack.player_card) <= 21:
+            black_jack.result = {"player wins"}
+        if sum(black_jack.dealer_card) == sum(black_jack.player_card) <= 21:
+            black_jack.result = {"it's a tie"}
+        if sum(black_jack.dealer_card) > sum(black_jack.player_card) <= 21:
+            black_jack.result = {"dealer wins"}
+        if sum(black_jack.player_card) > 21 and sum(black_jack.dealer_card) <= 21:
+            black_jack.result = {"dealer wins"}
+
+
+    def test_option(self):
