@@ -47,10 +47,10 @@ def game():
 
 
 def option():
-    choice = input("choice-> HIT ,  STAY:")
-    choice = choice.upper()
+    choice = input("choice-> HIT ,  STAY:").upper()
+    # choice = choice.upper()
     print(choice)
-    return choice
+    return
 
 
 def result():
@@ -69,4 +69,3 @@ def result():
     else:
         print("game over")
         return
-
