@@ -40,7 +40,7 @@ def game():
         print("dealer_card:", dealer_card, sum(dealer_card))
         return
     elif option != "HIT":
-        player_card.append(random.randint(1, 11))
+        # player_card.append(random.randint(1, 11))
         print("players card: ", player_card, sum(player_card))
         print("dealer_card:", dealer_card, sum(dealer_card))
         return
@@ -70,11 +70,3 @@ def result():
         print("game over")
         return
 
-
-if __name__ == '__main__':
-    print("lets get started >>>")
-
-players_card()
-dealers_card()
-game()
-result()
