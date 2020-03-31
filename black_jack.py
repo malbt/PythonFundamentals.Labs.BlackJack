@@ -45,12 +45,14 @@ def game():
         print("dealer_card:", dealer_card, sum(dealer_card))
         return
 
-
 def option():
     choice = input("choice-> HIT ,  STAY:").upper()
-    # choice = choice.upper()
-    print(choice)
-    return
+
+    if choice == "HIT" or choice == "STAY":
+        print(choice)
+        return
+    else:
+        raise ValueError("Enter a valid option")
 
 
 def result():
@@ -69,3 +71,6 @@ def result():
     else:
         print("game over")
         return
+
+
+
