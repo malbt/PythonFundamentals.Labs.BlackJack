@@ -55,12 +55,28 @@ class TestBlackJack(unittest.TestCase):
 
     # def option():
     #     choice = input("choice-> HIT ,  STAY:").upper()
-    #     # choice = choice.upper()
-    #     print(choice)
-    #     return
-    val = "hit"
+    #
+    #     if choice == "HIT" or choice == "STAY":
+    #         print(choice)
+    #         return
+    #     else:
+    #         raise ValueError("Enter a valid option")
 
-    @patch('builtins.input', return_value=val)
-    def test_option():
+    #@patch('black_jack_option_input')
+    def test_option(self):
         result = black_jack.option()
-        builtins.input.assertEqual(result, "HIT")
+        self.assertEqual("hit".upper(), "HIT")
+        self.assertEqual("stay".upper(), "STAY")
+        # builtins.input.assertEqual(result, "HIT")
+        if black_jack.choice == "HIT" or black_jack.choice == "STAY":
+            black_jack.option = {black_jack.choice}
+        else:
+            self.assertRaises(ValueError, black_jack.option(), "Enter a valid option")
+
+    #@patch('black_jack_option_input', return_value="HIT")
+    def test_option_HIT(self, input):
+        self.assertEqual(option(), "HIT")
+
+    @patch('black_jack_option_input', return_value="STAY")
+    def test_option_HIT(self, input):
+        self.assertEqual(option(), "STAY")
